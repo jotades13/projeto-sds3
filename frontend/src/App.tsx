@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div>Olá Jotehemmy, começando com React!
+    <div className="text-primary">Olá Jotehemmy, começando com React!
     </div>
   );
 }
