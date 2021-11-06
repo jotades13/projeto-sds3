@@ -8,16 +8,18 @@ import org.springframework.stereotype.Service;
 
 import com.dvsuperior.dsvendas.dto.SellerDTO;
 import com.dvsuperior.dsvendas.entities.Seller;
-import com.dvsuperior.dsvendas.repositories.SellerRepositoy;
+import com.dvsuperior.dsvendas.repositories.SellerRepository;
 
 @Service
 public class SellerService {
 
 	@Autowired
-	private SellerRepositoy repository;
+	private SellerRepository repository;
 	
 	public List<SellerDTO> findAll(){
 		List<Seller> result = repository.findAll();
+		// Este procedimento transforma uma a variavel result do tipo Seller para o tipo SellerDTO
+		// Pesquisar melhor a class stream().map
 		return result.stream().map(x -> new SellerDTO(x)).collect(Collectors.toList());
 	}
 }
